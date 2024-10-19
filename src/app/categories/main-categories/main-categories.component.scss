@@ -1,0 +1,312 @@
+
+// .card-content.scrollbar {
+//   max-height: 90px; 
+//   overflow-y: auto;
+// }
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  overflow-x: hidden;
+}
+
+
+.line {
+  border: none; 
+  border-top: 1px solid black; 
+  margin: 5px 0;
+}
+
+.button-container{
+  margin-bottom: 5px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 31vh;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 5px;
+  padding: 2px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: auto; /* Fixed height */
+  width:930px;
+  margin-left: 14px;
+}      
+.card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.filter {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  margin-right: 5px;
+}
+
+.checkbox1 {
+  margin-top: 5px;
+  margin-left: 4px;
+}
+
+
+.checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox label {
+  margin-top:10px;
+  margin-left:10px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkbox label {
+  margin-top:10px;
+  margin-left:10px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkbox input[type="checkbox"]:checked + label {
+  background-color: #00aaff;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  background-color: #fff;
+  height: 260px;
+}
+
+.card-header img {
+  max-width: 100%;
+  width: 577px;
+  height: 140px;
+}
+
+.card-main {
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.card-section {
+  margin-bottom: 3px;
+}
+
+.card-content {
+  padding: 2px 0;
+}
+
+.card-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.card-timeline {
+  margin-top: 5px;
+}
+
+.card-item {
+  margin-bottom: 5px;
+}
+
+.card-item-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+}
+
+.card-item-desc {
+  font-size: 14px;
+  color: #777;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin:2px;
+}
+
+.card-buttons button {
+  padding: 2px 2px;
+  margin: 3px;
+  background-color:#66696b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.card-buttons button:hover {
+  background-color: #0077cc;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 1px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 10px;
+}
+
+th {
+  background-color: #f2f2f236;
+  font-size: 8px;
+}
+
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  margin-bottom: 2px;
+  font-size: 10px;
+}
+
+.info-type {
+  font-weight: bold;
+}
+
+.info-value {
+  margin-left: 5px;
+}
+
+.reaction-container {
+  display: flex;
+  align-items: center;
+}
+
+.reactants, .products {
+  display: flex;
+}
+
+img {
+  width: 50px; 
+}
+
+.plus {
+  padding: 0 10px;
+  font-size: 18px;
+  margin-top: 61px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 720px; 
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}           
+.search{
+  border: 1px solid #c4c4c4;
+  width: 492px;
+  align-items: center;
+  display: flex;
+  border-radius: 50px;
+  font-size: 15px;
+  position: relative;
+  left:20%;
+  top:10px;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.search input{
+  width: 300px;
+  // height:65px;
+  height: 100%;
+  border: none;
+  padding: 8px 20px;
+  outline: none;
+  font-size: 18px;
+ 
+}
+.button-src{
+  padding: 10px 110px; 
+  display: inline-block;
+}
+.button-src button{
+  padding: 4px 21px 6px 25px;
+  border-radius: 50px;
+  border: none;
+  margin: 6px -2px;
+  background-color: #0056b3;
+  color: #ffffff;
+  font-size: 18px;
+}
+.side input{
+  margin: 20px;
+}
+
+.container-box.card {
+  margin: 10px; 
+  padding: 2px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: auto; 
+  width: 100%; 
+}
+

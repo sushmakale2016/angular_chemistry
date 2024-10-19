@@ -1,0 +1,179 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-Z+I3+vPD5OJX2xGz7RJ5ef0d8Q4OkUuYwZkXsP+QU3wPbSmJRtV7Ct+JG0qzzK8edrLoYVwWGEbYwjEGdlFYrg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<div class="container main-container main" style="margin-top: 112px;">
+    <div class="line"></div>
+    <div class="button-container" style="display: flex; justify-content: flex-end;">
+        <button title="Database" class="btn primary search-button">
+            <i class="fa fa-database" style="margin-right: 10px;"></i> Reference
+        </button>
+        <button title="Save" style="border: blue;">
+            <i class="fas fa-save"></i>
+        </button>
+        <button title="Download" style="border: blue;">
+            <i class="fas fa-download"></i>
+        </button>
+        <button title="Share" style="border: blue;">
+            <i class="fas fa-share"></i>
+        </button>
+        <button title="Message" style="border: blue;">
+            <i class="fas fa-envelope"></i>
+        </button>
+        <button title="Alert" style="border: blue;">
+            <i class="fas fa-bell"></i>
+        </button>
+    </div>
+    <div class="line"></div>
+</div>
+
+
+<div class="row" style="margin-top: 2px; margin-bottom: 22px; padding:5px" *ngIf="!showData" >
+    <div class="card" data-state="#about">
+        <div class="search">
+          <input class="side" id="searchQueryInput" [(ngModel)]="searchFilter.filter" (keyup)="onFocusEvent($event)"  type="text" class="search-input" placeholder="Search smiles here...">
+          <div class="button-src">
+              <button (click)="onSearch()">Search</button>
+          </div>
+       </div>
+
+     
+
+      <div class="card-header">
+        
+        <div *ngIf="imageZincData; else defaultImage" class="structure">
+          <img [src]="imageZincData" alt="Molecular Formula Structure">
+        </div>
+      
+        <ng-template #defaultImage>
+          <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2">
+        </ng-template>
+        
+        <!-- <div class="reaction-container">
+          <div class="reactants">
+            <div class="image-container">
+              <div class="card text-center w-85">
+               
+                
+
+                <div class="card-body">
+                  <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2">
+
+                  <div *ngIf="imageZincData" class="structure">
+                    <img [src]="imageZincData" alt="Molecular Formula Structure">
+                  </div>
+                </div>
+               
+              </div>
+              
+              <div class="button-container">
+                  <button title="cart" style="border: blue;">
+                    <i class="fa fa-cart-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
+                  </button>
+                  <button title="external-link" style="border: blue;">
+                    <i class="fa fa-link" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
+                  </button>
+                  <button title="search" style="border: blue;">
+                    <i class="fa fa-search-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
+                  </button>
+                  <button title="bars" style="border: blue;">
+                    <i class="fa fa-bars" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
+                  </button>
+                  <button title="registered" style="border: blue;">
+                    <i class="fa fa-registered" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
+                  </button>
+              </div>
+          </div>         
+
+          </div>
+        </div> -->
+
+      </div>
+
+      <div class="card-main" style="margin-top: 5px; margin-bottom: 5px; padding:10px">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card1" style="background-color:#676767; color: #fff; border-radius: 5px;">
+              <div class="card-body">
+                <h4 class="card-title">Reaction procedure</h4>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary" style="background: content-box;">Deatil</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card2" style="background-color:#676767; color: #fff; border-radius: 5px;">
+              <div class="card-body">
+                <h4 class="card-title">Resource</h4>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary" style="background: content-box;">Pdf-link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    
+        <div class="card-section is-active" id="about">
+        </div>
+
+      </div>
+      <!-- <div class="card-buttons">
+          <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> ABOUT</button>
+          <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
+          <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
+      </div> -->
+    </div>
+</div>  
+
+
+
+<!--     
+    <div class="container-box" *ngIf="showData">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-md-6 col-lg-6 card-width" *ngFor="let item of imageLists">
+            <div class="card">
+              <img class="card-img-top" [src]="'data:image/png;base64,' + item.imageData" alt="Image" style="object-fit: cover; width: 100% !important;">
+              <div class="card-body">
+                <p class="card-text" style="font-size: 18px;"><b>Zinc ID: </b> {{ item.zincId }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+
+
+<!-- //////////////////////SHOWING REACTION STRUCTURE -->
+    <section class="container" *ngIf="showData">
+      <div>
+          <div class="row pt-2">
+           
+            <div class="col-sm-8 my-2 width_set_card rounded" *ngFor="let item of imageLists">
+              <div class="listing-cards card p-3 card_responsive1" >
+              <img class="card-img-top" [src]="'data:image/png;base64,' + item.imageData" alt="Image" style="object-fit: cover; width: 100% !important;">
+              <p class="card-text" style="font-size: 18px;"><b>Zinc ID: </b> {{ item.zincId }}</p>
+              <p class="card-text" style="font-size: 16px;"><b>Reaction Temperature: </b> {{ item.reactionAction?.normalizedValue }}</p>  
+              <p class="card-text" style="font-size: 16px;"><b>Action:</b>{{item.reactionAction?.action}}</p>
+              <p class="card-text" style="font-size: 16px;"><b>Property Type:</b>{{item.reactionAction?.propertyType}}</p>
+              <p class="card-text" style="font-size: 16px;"><b>Description:</b>{{item.reactionAction?.phraseText}}</p>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+        </section> 
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- <div *ngIf="imageList">
+  <h2>Images:</h2>
+  <div *ngFor="let imageData of imageList">
+    <img [src]="imageData.base64ImageData" alt="Image">
+    <p>Zinc ID: {{ imageData.zincId }}</p>
+  </div>
+</div> -->
+
+

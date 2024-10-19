@@ -1,0 +1,180 @@
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-Z+I3+vPD5OJX2xGz7RJ5ef0d8Q4OkUuYwZkXsP+QU3wPbSmJRtV7Ct+JG0qzzK8edrLoYVwWGEbYwjEGdlFYrg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<div class="container main-container main" style="margin-top: 112px;">
+    <div class="line"></div>
+    <div class="button-container" style="display: flex; justify-content: flex-end;">
+        <button title="Database" class="btn primary search-button">
+            <i class="fa fa-database" style="margin-right: 10px;"></i> Reference
+        </button>
+        <button title="Save" style="border: blue;">
+            <i class="fas fa-save"></i>
+        </button>
+        <button title="Download" style="border: blue;">
+            <i class="fas fa-download"></i>
+        </button>
+        <button title="Share" style="border: blue;">
+            <i class="fas fa-share"></i>
+        </button>
+        <button title="Message" style="border: blue;">
+            <i class="fas fa-envelope"></i>
+        </button>
+        <button title="Alert" style="border: blue;">
+            <i class="fas fa-bell"></i>
+        </button>
+    </div>
+    <div class="line"></div>
+
+</div>
+
+<div class="container">
+  <div class="search">
+    <input class="side" id="searchQueryInput" [(ngModel)]="searchFilter.zincId" (keyup)="onFocusEvent($event)"  type="text" class="search-input" placeholder="Search smiles here...">
+    <div class="button-src">
+        <button (click)="zincSearch()">Search</button>
+    </div>
+ </div>
+
+</div>
+
+
+
+<div class="container" *ngIf="showZincStructure">
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-center"> 
+      <div class="card" style="width: 68rem;">
+        <div class="card-body">
+          <h2 class="card-title">ZINC STRUCTURE</h2>
+          <div *ngIf="imageZincData" class="structure">
+            <img [src]="'data:image/png;base64,' + imageZincData.imageData" alt="Molecular Formula Structure">
+          </div>
+          <h6 class="card-subtitle mb-2 text-muted">Zinc Id: {{ zincId }}</h6>
+          <p class="card-text text-muted">Search More Zinc Structure</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container-box" *ngIf="showData && !showZincStructure">
+  <div class="scrollable-container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of imageLists">
+        <div class="card mb-3">
+          <img class="card-img-top" [src]="'data:image/png;base64,' + item.imageData" alt="Image">
+          <div class="card-body">
+            <p class="card-text">Zinc ID: {{ item.zincId }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="show_data" *ngIf="!showData && !showZincStructure">
+<div class="row">
+  <div class="col-md-3 data-struct" *ngFor="let imageData of imageList">
+    <div class="card" data-state="#about">
+      <div class="horizontal-items">
+        <div class="filter">
+          <div class="checkbox1">
+            <input type="checkbox" id="structurecheckbox">
+            <label for="structurecheckbox"></label>
+          </div>
+        </div>
+      </div>
+      <div class="card-header">
+        <img  width="500px" height="auto" class="card-image" [src]="'data:image/png;base64,' + imageData.base64ImageData" alt="Image">
+        </div>
+      <div class="card-main">
+        <div class="card-section is-active" id="about">
+          <table>
+            <tr>
+                <th>Zinc Id:</th>
+                <td>{{ imageData.zincId }}</td>
+            </tr>
+            <tr>
+                <th>IUPAC name:</th>
+                <td>	2-methylpropane-2-thiol</td>
+            </tr>
+            <tr>
+                <th>Melt.Point:</th>
+                <td>0°C</td>
+            </tr>
+            <tr>
+                <th>Boil.Point:</th>
+                <td>100°C</td>
+            </tr>
+        </table>
+        </div>
+
+        <div class="card-section" id="experience" style="display: none;">
+          <div class="card-content scrollbar">
+            <div class="card-subtitle">WORK EXPERIENCE</div>
+            <div class="card-timeline">
+              <div class="card-item" data-year="2014">
+                <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
+                <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
+              </div>
+              <div class="card-item" data-year="2016">
+                <div class="card-item-title">UI Developer at <span>GitHub</span></div>
+                <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
+              </div>
+              <div class="card-item" data-year="2018">
+                <div class="card-item-title">Illustrator at <span>Google</span></div>
+                <div class="card-item-desc">Onboarding illustrations for App.</div>
+              </div>
+              <div class="card-item" data-year="2020">
+                <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
+                <div class="card-item-desc">Responsible for the encompassing brand experience.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card-section" id="contact" style="display: none;">
+          <div class="card-content">
+            <div class="card-subtitle">CONTACT</div>
+            <div class="card-contact-wrapper">
+              <div class="card-contact">
+                Algonquin Rd, Three Oaks Vintage, MI, 49128
+              </div>
+              <div class="card-contact">
+              </div>
+              <div class="card-contact">
+                william@rocheald.com
+              </div>
+              <button class="contact-me">WORK TOGETHER</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-buttons">
+          <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> BUY</button>
+          <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
+          <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+</div>
+<!-- end of show_data -->
+
+
+
+<br><br><br><br><br><br><br><br>
